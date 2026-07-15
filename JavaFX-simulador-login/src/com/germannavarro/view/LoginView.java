@@ -5,71 +5,42 @@
 package com.germannavarro.view;
 
 import com.germannavarro.controller.ImageController;
-
 import javafx.geometry.Insets;
-
 import javafx.scene.control.Button;
-
 import javafx.scene.control.Label;
-
 import javafx.scene.control.PasswordField;
-
 import javafx.scene.control.TextField;
-
 import javafx.scene.image.ImageView;
-
 import javafx.scene.layout.Background;
-
 import javafx.scene.layout.BackgroundFill;
-
 import javafx.scene.layout.Border;
-
 import javafx.scene.layout.BorderPane;
-
 import javafx.scene.layout.BorderStroke;
-
 import javafx.scene.layout.BorderStrokeStyle;
-
 import javafx.scene.layout.BorderWidths;
-
 import javafx.scene.layout.CornerRadii;
-
 import javafx.scene.layout.GridPane;
-
 import javafx.scene.layout.HBox;
-
 import javafx.scene.layout.VBox;
-
 import javafx.scene.paint.Paint;
-
 public class LoginView extends BorderPane {
 
     private static LoginView instanciaLoginView;
-
     private HBox barraDeVentana;
-
     private Button btnCerrarVentana;
-
     private Label lblTituloVentana;
-
     private ImageView imgLogoLogin;
-
     private TextField txtNombreUsuario;
-
     private Label lblNombreUsuario;
-
     private PasswordField pwdClave;
-
     private Label lblClave;
-
     private GridPane formulario;
-
     private Button btnIniciarSesion;
-
     private VBox cajaVertical;
+    private final String RUTA_ESTILOS = "/com/germannavarro/styles/";
 
-    private LoginView() {
-
+    public LoginView() {
+        this.getStylesheets().add(RUTA_ESTILOS + "LoginStyles.css");
         this.setPadding(new Insets(20));
 
         this.setBorder(new Border(
