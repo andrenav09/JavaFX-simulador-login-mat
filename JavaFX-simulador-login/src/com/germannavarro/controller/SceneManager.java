@@ -4,6 +4,8 @@
  */
 package com.germannavarro.controller;
 
+import com.germannavarro.model.Usuario;
+import com.germannavarro.view.BienvenidaView;
 import com.germannavarro.view.LoginView;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -59,6 +61,45 @@ public class SceneManager {
         }
     }
  
+/**
+     * Cierra la ventana de Login y abre una nueva ventana pequeña de
+     * bienvenida, mostrando el nombre y el rol del usuario autenticado.
+     *
+     * @param usuario usuario que inició sesión correctamente
+     */
+    public void ventanaBienvenida(Usuario usuario) {
+        try {
+            //Crear el nuevo escenario de bienvenida
+            this.escenarioSecundario = new Stage();
+            this.escenarioSecundario.initStyle(StageStyle.TRANSPARENT);
+
+            BienvenidaView bienvenida = new BienvenidaView(usuario);
+            bienvenida.getStylesheets().add("/com/germannavarro/styles/LoginStyles.css");
+
+            Scene escenaBienvenida = new Scene(bienvenida, 300, 230);
+            escenaBienvenida.setFill(Color.TRANSPARENT);
+
+            this.escenarioSecundario.setScene(escenaBienvenida);
+
+            bienvenida.getBtnCerrar().setOnMouseClicked(evento -> escenarioSecundario.close());
+
+            //Mostrar PRIMERO la nueva ventana...
+            this.escenarioSecundario.show();
+
+            //...y HASTA AHORA cerrar el login. Si se cierra antes de mostrar
+            //la nueva ventana, JavaFX se queda sin ventanas visibles y apaga
+            //el toolkit (implicitExit=true), provocando un error al hacer show().
+            this.escenarioPrincipal.close();
+
+        } catch (NullPointerException objetoNulo) {
+            JOptionPane.showMessageDialog(null, "Error de objeto nulo: Ventana Bienvenida");
+            objetoNulo.printStackTrace();
+        } catch (Exception errorPadre) {
+            JOptionPane.showMessageDialog(null, "Error padre: Ventana Bienvenida");
+            errorPadre.printStackTrace();
+        }
+    }
+
     public static SceneManager getInstanciaSceneManager() {
         if (instanciaSceneManager == null) {
             instanciaSceneManager = new SceneManager();

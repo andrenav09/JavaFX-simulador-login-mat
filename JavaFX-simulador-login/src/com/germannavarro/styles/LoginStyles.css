@@ -27,3 +27,57 @@ PasswordField.empty{
     -fx-border-width: 2px;
 }
 
+.barra-ventana{
+    -fx-alignment: center-right;
+    -fx-spacing: 15;
+}
+
+.titulo-ventana{
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: #1C2A6B;
+    -fx-padding: 0 40 0 0;
+}
+
+.btn-cerrar{
+    -fx-background-color: #E85C5C;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 15;
+    -fx-min-width: 25;
+    -fx-min-height: 25;
+    -fx-cursor: hand;
+}
+
+.btn-cerrar:hover{
+    -fx-background-color: #C93A3A;
+}
+
+.btn-ingresar{
+    -fx-background-color: #1C2A6B;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 8 25 8 25;
+    -fx-cursor: hand;
+}
+
+.btn-ingresar:hover{
+    -fx-background-color: #3D53B0;
+}
+
+.badge-rol{
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 4 14 4 14;
+    -fx-background-radius: 12;
+}
+
+.badge-admin{
+    -fx-background-color: #1C2A6B;
+}
+
+.badge-user{
+    -fx-background-color: #3D53B0;
+}
